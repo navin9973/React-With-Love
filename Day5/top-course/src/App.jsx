@@ -6,9 +6,11 @@ import { useState } from "react";
 import Cards from "./cards";
 import Spinner from "./spinner"; 
 import { toast } from "react-toastify";
+import "./App.css";
 function App() {
   const [courses, setCourse] = useState(null);
   const [loarding, setloarding] = useState(true);
+  const [category,setCategory]=useState(filterData[0].title);
   async function fetchData() {
     setloarding(true);
     try {
@@ -30,11 +32,10 @@ function App() {
       <div>
         <Navbar></Navbar>
       </div>
-      <div>
-        <Filter filterData={filterData}></Filter>
-      </div>
-      <div>
-        {loarding?(<Spinner></Spinner>):(<Cards courses={courses}></Cards>)}
+      <div className=" back">
+        <Filter filterData={filterData} category={category} setCategory={setCategory}></Filter>
+     
+        {loarding?(<Spinner></Spinner>):(<Cards courses={courses} category={category}></Cards>)}
       </div>
     </>
   );

@@ -1,0 +1,45 @@
+.main{
+  width: 600px;
+  height: 400px;
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+.main:hover{
+  box-shadow: 20px 20px 25px rgba(1, 1, 1, 0.3);
+} 
+.next{
+  /* background-color: white; */
+  border: 0cap;
+  margin: 10px;
+  color: violet;
+  font-size: x-large;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* background-color: red; */
+}
+.next:hover{
+  /* background-color: violet; */
+  color: black;
+  
+}
+
+.butn{
+  background-color:violet;
+  font-size: x-large;
+  border: 0cap;
+  border-radius: 5px;
+   color: white;
+   margin-top: 10px;
+   margin-bottom: 120px;
+  padding: 5px;
+}
+
+.butn:hover{
+  background-color: aquamarine;
+  color: black;
+}

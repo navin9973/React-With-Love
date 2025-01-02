@@ -1,0 +1,44 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: lightblue; */
+  background-color: rgb(227, 226, 226);
+  min-height: 100vh; /* Ensures it covers the viewport height */
+  margin: 0;
+}
+
+.head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 40px;
+  /* text-align: center; */
+}
+.space{
+  border: 2px solid blueviolet;
+  width: 190px;
+  margin-top: 5px;
+
+ 
+}
+.testi{
+  /* margin: 0;
+  padding: 0; */
+  /* box-sizing: border-box; */
+  /* width: 100vw; */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+  /* padding-top: 40px; */
+}
