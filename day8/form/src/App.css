@@ -1,0 +1,29 @@
+.form-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  
+}
+p {
+  color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  font-weight: 550;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  background-color: aquamarine;
+  font-family: 'Courier New', monospace; /* Change to Arial font */
+}
+h2{
+  font-weight: bolder;
+}
+label{
+  font-weight: 550;
+}
+legend{
+  font-weight: bold;
+}

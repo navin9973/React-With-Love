@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./app.css"
 function App() {
   const [formData, setData] = useState({
     firstname: "",
@@ -8,22 +9,36 @@ function App() {
     country: "",
     street: "",
     city: "",
+    state: "",
+    pin: "",
+    comment: false,
+    condidate: false,
+    offer: false,
+    notification: "",
   });
-  console.log(formData);
 
   function changeHandler(event) {
+    const { name, value, type, checked } = event.target;
     setData((prevData) => {
       return {
         ...prevData,
-        [event.target.name]: event.target.value,
+        [name]: type === "checkbox" ? checked : value,
       };
     });
   }
 
+  function submiteHandler(event) {
+    event.preventDefault();
+    console.log(formData);
+  }
+
   return (
-    <>
-      <form>
-        <label htmlFor="first">First Name</label>
+    <><div className="form-group">
+      <br />
+      <h2 >Student Registration Form</h2>
+      <br />
+      <form onSubmit={submiteHandler} >
+        <label htmlFor="first" className="form-label">First Name</label>
         <br />
         <input
           type="text"
@@ -32,10 +47,11 @@ function App() {
           onChange={changeHandler}
           value={formData.firstname}
           id="first"
+          className="form-control"
         />
         <br />
-        <br />
-        <label htmlFor="last">Last Name</label>
+        
+        <label htmlFor="last" className="form-label">Last Name</label>
         <br />
         <input
           type="text"
@@ -44,10 +60,11 @@ function App() {
           value={formData.lastname}
           onChange={changeHandler}
           id="last"
+           className="form-control"
         />
         <br />
-        <br />
-        <label htmlFor="emai">Email address</label>
+      
+        <label htmlFor="emai" className="form-label">Email address</label>
         <br />
         <input
           type="email"
@@ -56,21 +73,30 @@ function App() {
           onChange={changeHandler}
           value={formData.email}
           id="emai"
+           className="form-control"
         />
         <br />
+       
+        <label htmlFor="count" className="form-label">Country</label>
         <br />
-        <label htmlFor="count">Country</label>
+        <select
+        
+          name="country"
+          id="country"
+          onChange={changeHandler}
+          value={formData.country}
+           className="form-control"
+        >
+          <option value="" selected >Select Your Country</option>
+          <option value="India">India</option>
+          <option value="chaina">chaina</option>
+          <option value="USA">USA</option>
+          <option value="canada">canada</option>
+          <option value="Nepal">Nepal</option>
+        </select>
         <br />
-       <select name="country" id="country">
-        <option value="">India</option>
-        <option value="">chaina</option>
-        <option value="">USA</option>
-        <option value="">canada</option>
-        <option value="">Nepal</option>
-       </select>
-        <br />
-        <br />
-        <label htmlFor="">Street Address</label>
+       
+        <label htmlFor="" className="form-label">Street Address</label>
         <br />
         <input
           type="text"
@@ -78,10 +104,11 @@ function App() {
           id="street"
           placeholder="street address"
           value={formData.street}
+          onChange={changeHandler}
+           className="form-control"
         />
         <br />
-        <br />
-        <label htmlFor="city">City</label>
+        <label htmlFor="city" className="form-label">City</label>
         <br />
         <input
           type="text"
@@ -90,28 +117,125 @@ function App() {
           placeholder="enter city"
           value={formData.city}
           onChange={changeHandler}
+           className="form-control"
         />
-        <br /><br /><label htmlFor="state">State</label><br />
-        <input type="text" name="state" id="state"placeholder="enter your state" value={formData.state} onChange={changeHandler} />
-        <br /><br /><label htmlFor="pin">Pin Code</label><br />
-        <input type="text" name="pin" id="pin" placeholder="844501"  value={formData.pin} onChange={changeHandler}/>
-        <h3>By Email</h3>
-      
-        <input type="checkbox" name="" id="comment" />
-        <label htmlFor="comment">comment <br />
-        get notified when someone posts a comment on a posting
-        </label><br /><br />
-        <input type="checkbox" name="" id="condidate" />
-        <label htmlFor="condidate">condidates <br />
-        get notified when someone condidate applies for a job
+        <br />
+     
+        <label htmlFor="state" className="form-label">State</label>
+        <br />
+        <input
+          type="text"
+          name="state"
+          id="state"
+          placeholder="enter your state"
+          value={formData.state}
+          onChange={changeHandler}
+           className="form-control"
+        />
+        <br />
+        
+        <label htmlFor="pin" className="form-label">Pin Code</label>
+        <br />
+        <input
+          type="text"
+          name="pin"
+          id="pin"
+          placeholder="844501"
+          value={formData.pin}
+          onChange={changeHandler}
+           className="form-control"
+        />
+        <fieldset>
+          <legend>By Email</legend>
+          <input
+          type="checkbox"
+          name="comment"
+          id="comment"
+          onChange={changeHandler}
+          checked={formData.comment}
+          className="form-check-input"
+          
+        />
+        <label htmlFor="comment" className="form-check-label">
+          COMMENT
+          
         </label>
-        <br /><br />
-        <input type="checkbox" name="" id="offer" />
-        <label htmlFor="offer">offers <br />
-        get notified when someone accepts or reject an offer
+        <p>get notified when someone posts a comment on a posting</p>
+        
+        
+        <input
+          type="checkbox"
+          name="condidate"
+          id="condidate"
+          onChange={changeHandler}
+          checked={formData.condidate}
+          className="form-check-input"
+        />
+        <label htmlFor="condidate" className="form-check-label">
+          CONDIDATES 
+          
         </label>
+        <p>get notified when someone condidate applies for a job</p>
+        <input
+          type="checkbox"
+          name="offer"
+          id="offer"
+          onChange={changeHandler}
+          checked={formData.offer}
+          className="form-check-input"
+        />
+        <label htmlFor="offer" className="form-check-label">
+          OFFER 
+         
+        </label>
+        <p> get notified when someone accepts or reject an offer</p>
+        </fieldset>
+        
+        
+        <fieldset>
+          <legend>Push Notification </legend>
+          <p> These are delivered via SMS to your mobile
+          phone</p>
 
+          <input
+          type="radio"
+          name="notification"
+          id="everything"
+          onChange={changeHandler}
+          value="everything"
+          className="form-check-input"
+        />
+        <label htmlFor="everything" className="form-check-label">Everything</label>
+        <br />
+        <br />
+        <input
+          type="radio"
+          name="notification"
+          id="same"
+          onChange={changeHandler}
+          value="same as mail"
+          className="form-check-input"
+        />
+        <label htmlFor="same" className="form-check-label">Same as Mail</label>
+        <br />
+        <br />
+        <input
+          type="radio"
+          name="notification"
+          id="push"
+          onChange={changeHandler}
+          value="no push button"
+          className="form-check-input"
+        />
+        <label htmlFor="push" className="form-check-label"> No Push Button</label>
+        <br />
+        <br />
+        </fieldset>
+       
+       
+        <button className="btn btn-primary">Save</button>
       </form>
+      </div>
     </>
   );
 }
