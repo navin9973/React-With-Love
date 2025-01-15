@@ -1,8 +1,10 @@
 import Templet from "../component/templet";
-function Login({set}){
-  return 
-  <Templet
+import loginImg from "../assets/login.png";
+function Login({setlogin}){
+  return <div>
+  <Templet title="welcome Back" desc1="Build skill for today,tomorrow,beyond" desc2="Education is future proof of career" image={loginImg} formtype="login " setlogin={setlogin}
   ></Templet>
+  </div>
 
 }
 export default Login;

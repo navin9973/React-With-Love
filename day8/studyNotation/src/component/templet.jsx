@@ -1,4 +1,6 @@
-import Frameimage from "../assets/frame.png"
+import Frameimage from "../assets/frame.png";
+// import SignupForm from "./SignupForm"
+// import LoginForm from "./loginForm"
 function Templet({title,desc1,desc2,image,formtype,setlogin}){
   return <div>
   <h1>{title}</h1>

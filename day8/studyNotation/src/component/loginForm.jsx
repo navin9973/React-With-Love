@@ -18,8 +18,7 @@ function LoginForm() {
 
   return (
     <form action="">
-      <label htmlFor="email">
-        {" "}
+      <label htmlFor="email">    
         Email address <sup>*</sup>
       </label>
       <br />
