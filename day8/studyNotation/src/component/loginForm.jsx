@@ -1,23 +1,36 @@
 import { useState } from "react";
-import { FaRegEye,FaRegEyeSlash } from "react-icons/fa";
-import{Link} from"react-router-dom"
-function LoginForm() {
+// import { FaRegEye,FaRegEyeSlash } from "react-icons/fa"
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import{toast} from "react-hot-toast"
+
+import{Link, useNavigate} from"react-router-dom"
+function LoginForm({setlogin}) {
   const [formData, setFrom] = useState({
     email: "",
     password: "",
   });
   const [showPassword, setPassword] = useState(false);
 
+  const navigate=useNavigate();
+
   function ChangeHandler(event) {
-    const { value, name } = event.target;
+    // const { value, name } = event.target;
     setFrom((prev) => ({
       ...prev,
-      [name]: value,
+      [event.target.name]: event.target.value,
     }));
   }
 
+  function submitHandler(event){
+   event.preventDefault();
+   navigate("/dashboard");
+   setlogin(true)
+   toast.success("loged in")
+  }
+
+
   return (
-    <form action="">
+    <form onSubmit={submitHandler} >
       <label htmlFor="email">    
         Email address <sup>*</sup>
       </label>
@@ -46,7 +59,7 @@ function LoginForm() {
         value={formData.password}
         required
       />
-      <span onClick={setPassword((prev)=>!prev)}>
+      <span onClick={()=>setPassword((prev)=>!prev)}>
         {showPassword?(<FaRegEye></FaRegEye>):(<FaRegEyeSlash></FaRegEyeSlash> )}
       </span>
       <br />
