@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     console.log("listner added");
     return () =>{
-      console.log("listner remove ");
+      console.log("listner remove");
     }
     
   }, [text]);
