@@ -7,7 +7,7 @@ function App() {
     text: "",
     isVisible: true,
     mode: "",
-    favCar:"",
+    favCar: "",
   });
   // console.log(formData);
 
@@ -21,12 +21,10 @@ function App() {
     });
   }
 
-  function submitHandler(event){
-event.preventDefault();
-console.log("printing full Data of the form");
-console.log(formData);
-
-
+  function submitHandler(event) {
+    event.preventDefault();
+    console.log("printing full Data of the form");
+    console.log(formData);
   }
   return (
     <>
@@ -74,39 +72,46 @@ console.log(formData);
           id="isVisible"
           checked={formData.isVisible}
         />
-
         <br />
         <br />
         <fieldset>
           <legend>Mode</legend>
           <label htmlFor="mode">online-mode</label>
-        <input
-          type="radio"
-          onChange={changeHandler}
-          name="mode"
-          value="online-mode"
-          id="mode"
-          // checked={formData.mode==="online-mode"}
-        />
-        <label htmlFor="mode1">offline-mode</label>
-        <input type="radio" name="mode" id="mode1"
-        value="offline-mode"
-        onChange={changeHandler} 
-        // checked={formData.mode==="offline-mode"}
-        />
+          <input
+            type="radio"
+            onChange={changeHandler}
+            name="mode"
+            value="online-mode"
+            id="mode"
+            // checked={formData.mode==="online-mode"}
+          />
+          <label htmlFor="mode1">offline-mode</label>
+          <input
+            type="radio"
+            name="mode"
+            id="mode1"
+            value="offline-mode"
+            onChange={changeHandler}
+            // checked={formData.mode==="offline-mode"}
+          />
         </fieldset>
-<label htmlFor="favCar">select your fav car </label>
-        <select name="favCar" id="favCar" value={formData.favCar}onChange={changeHandler}>
+        <label htmlFor="favCar">select your fav car </label>
+        <select
+          name="favCar"
+          id="favCar"
+          value={formData.favCar}
+          onChange={changeHandler}
+        >
           <option value="scarpoi">scarpio</option>
           <option value="fortuner">fortuner</option>
           <option value="bmw">bmw</option>
           <option value="frari">frari</option>
         </select>
-       
-      <br /><br />
-      {/* <input type="submit" value="submit" />  */}  {/*aise v button de shate h*/}
-
-      <button>submit</button>
+        <br />
+        <br />
+        {/* <input type="submit" value="submit" />  */}{" "}
+        {/*aise v button de shate h*/}
+        <button>submit</button>
       </form>
     </>
   );
